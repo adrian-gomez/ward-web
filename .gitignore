@@ -1,0 +1,11 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+
+/coverage
+/config/secrets.yml
+/config/mongoid.yml
