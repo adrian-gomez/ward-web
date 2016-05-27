@@ -21,14 +21,18 @@ gem 'therubyracer', '~> 0.12', '>= 0.12.2', platforms: :ruby
 
 gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
+gem 'ipaddress', '~> 0.8', '>= 0.8.3'
+
 group :development do
   gem 'quiet_assets', '~>  1.1'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
 group :test do
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'simplecov', '~> 0.11', '>= 0.11.2', require: false
 end
