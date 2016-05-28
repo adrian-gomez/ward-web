@@ -4,6 +4,8 @@ class Instance
   field :label, type: String
   field :ip, type: String
 
+  has_many :readings
+
   validates :ip, presence: true
   validates :ip, uniqueness: true, allow_nil: true
 
