@@ -1,5 +1,6 @@
 class Instance
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :label, type: String
   field :ip, type: String

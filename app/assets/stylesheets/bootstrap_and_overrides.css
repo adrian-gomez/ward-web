@@ -2,3 +2,11 @@
   =require twitter-bootstrap-static/bootstrap
   =require twitter-bootstrap-static/fontawesome
 */
+
+body>.container {
+    margin-bottom: 5em;
+}
+
+footer.navbar.navbar-default .copyright {
+    margin: 1em 0 0 0;
+}

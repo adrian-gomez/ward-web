@@ -23,6 +23,10 @@ gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
 gem 'ipaddress', '~> 0.8', '>= 0.8.3'
 
+gem 'dcjs-rails', '~>  1.6'
+gem 'd3-rails', '~>  3.5', '>= 3.5.16'
+gem 'crossfilter-rails', '~>  1.3', '>= 1.3.7'
+
 group :development do
   gem 'quiet_assets', '~>  1.1'
 end

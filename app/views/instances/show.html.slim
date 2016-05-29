@@ -1,5 +1,16 @@
 .page-header
-  h1=t '.title', default: 'Instance'
+  h1
+    = instance_title(@instance)
+
+    .pull-right
+      = link_to t('.back', default: t("helpers.links.back")), instances_path, class: 'btn btn-default'
+      '
+      = link_to t('.edit', default: t("helpers.links.edit")), edit_instance_path(@instance), class: 'btn btn-default'
+      '
+      = link_to t('.destroy', default: t("helpers.links.destroy")), instance_path(@instance),
+                method: :delete,
+                data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+                class: 'btn btn-danger'
 
 p
   strong= Instance.human_attribute_name(:ip) + ':'
@@ -11,11 +22,4 @@ p
   br
   = @instance.label
 
-= link_to t('.back', default: t("helpers.links.back")), instances_path, class: 'btn btn-default'
-'
-= link_to t('.edit', default: t("helpers.links.edit")), edit_instance_path(@instance), class: 'btn btn-default'
-'
-= link_to t('.destroy', default: t("helpers.links.destroy")), instance_path(@instance),
-          method: :delete,
-          data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
-          class: 'btn btn-danger'
+= render 'charts', instance: @instance

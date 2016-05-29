@@ -14,7 +14,7 @@ table.table.table-striped
   tbody
     - @instances.each do |instance|
       tr
-        td= instance.ip
+        td= link_to instance.ip, instance_path(instance)
         td= instance.label
         td
           = link_to t('.edit', default: t("helpers.links.edit")), edit_instance_path(instance), class: 'btn btn-default btn-xs'

@@ -22,7 +22,7 @@ class Api::ReadingsController < ApiController
   end
 
   def reading_params
-    params.require(:reading).permit(:type, :value).merge(instance: @instance)
+    params.require(:reading).permit!.merge(instance: @instance)
   end
 
 end

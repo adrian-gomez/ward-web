@@ -17,30 +17,24 @@ html lang='en'
   body
     .navbar.navbar-default.navbar-static-top
       .container
-          button.navbar-toggle type='button' data-toggle='collapse' data-target='.navbar-responsive-collapse'
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href='#'WardWeb
-          .navbar-collapse.collapse.navbar-responsive-collapse
-            ul.nav.navbar-nav
-              li= link_to 'Link 1', '/path1'
-              li= link_to 'Link 2', '/path2'
-              li= link_to 'Link 3', '/path3'
+        button.navbar-toggle type='button' data-toggle='collapse' data-target='.navbar-responsive-collapse'
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href=root_path WardWeb
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          ul.nav.navbar-nav
+            li= link_to 'Dashboard', dashboard_path
+            li= link_to 'Instances', instances_path
+            li= link_to 'Link 2', '/path2'
+            li= link_to 'Link 3', '/path3'
 
     .container
       .row
-        .col-lg-9
+        .col-lg-12
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            h3 Sidebar
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to 'Link 1', '/path1'
-              li= link_to 'Link 2', '/path2'
-              li= link_to 'Link 3', '/path3'
 
-      footer
-        p &copy; Company 2016
+    footer.navbar.navbar-default.navbar-fixed-bottom
+      .container.text-right
+        p.copyright &copy; Ward 2016

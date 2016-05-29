@@ -31,7 +31,7 @@ RSpec.describe Api::ReadingsController do
     end
 
     context 'with invalid params' do
-      let(:invalid_attributes) { attributes_for(:reading).merge(type: 'invalid') }
+      let(:invalid_attributes) { attributes_for(:reading).merge(data: {}) }
 
       it 'does not create a new instance reading' do
         expect {
@@ -48,7 +48,7 @@ RSpec.describe Api::ReadingsController do
       it 'returns an error message' do
         post :create, { reading: invalid_attributes }
 
-        expect(JSON(response.body)['messages']).to eq(['Type is not included in the list'])
+        expect(JSON(response.body)['messages']).to eq(['Data can\'t be blank'])
       end
     end
 

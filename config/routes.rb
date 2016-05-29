@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :instances
+  get :dashboard,  controller: :dashboard, action: :index
 
-  namespace :api, defaults: { format: :json } do
-    resource :readings, only: [:create]
+  resources :instances do
+    resources :readings, only: [:index], controller: 'instances/readings'
   end
 
-  root 'instances#index'
+  namespace :api, defaults: { format: :json } do
+    resources :readings, only: [:create]
+  end
+
+  root 'dashboard#index'
 end
