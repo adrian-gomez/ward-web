@@ -22,4 +22,5 @@ p
   br
   = @instance.label
 
-= render 'charts', instance: @instance
+.row
+  .col-lg-12= render 'charts', instance: @instance, show_table: true

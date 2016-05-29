@@ -1,4 +1,14 @@
+- show_table = local_assigns.fetch(:show_table, false)
 .row.instance-charts data={ instance_id: instance.id, readings_path: instance_readings_path(instance) }
   div id="cpu-usage-chart-#{instance.id}"
   div id="disk-usage-chart-#{instance.id}"
   div id="scan-chart-#{instance.id}"
+
+  - if show_table
+    table.table.table-striped id="data-table-#{instance.id}"
+      thead
+        tr
+          th Id
+          th Date
+          th CPU Usage
+          th Disk Usage

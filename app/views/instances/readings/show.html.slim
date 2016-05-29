@@ -1,0 +1,24 @@
+.page-header
+  h1 Reading
+
+p
+  strong CPU Usage:
+  br
+  = number_to_human(@reading.data.try(:cpu_usage))
+
+p
+  strong Disk Usage:
+  br
+  = number_to_human(@reading.data.try(:disk_usage))
+
+table.table.table-striped
+  thead
+    tr
+      th PID
+      th Name
+
+  tbody
+    - (@reading.data.try(:process_list) || {}).each do |process|
+      tr
+        td aa
+        td= process

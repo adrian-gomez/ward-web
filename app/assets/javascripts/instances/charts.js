@@ -2,6 +2,7 @@ function buildInstanceCharts(instanceId, readingsPath) {
   var cpuChart = dc.lineChart('#cpu-usage-chart-' + instanceId);
   var diskChart = dc.lineChart('#disk-usage-chart-' + instanceId);
   var volumeChart = dc.barChart('#scan-chart-' + instanceId);
+  var nasdaqTable = dc.dataTable('#data-table-' + instanceId);
   addFocusCharts(volumeChart);
 
   d3.json(readingsPath, function (data) {
@@ -77,7 +78,8 @@ function buildInstanceCharts(instanceId, readingsPath) {
         return dateFormat(d.data.key) + ': ' + numberFormat(value);
       });
 
-    volumeChart.width(990)
+    volumeChart
+      .width(990)
       .height(40)
       .margins({top: 0, right: 50, bottom: 20, left: 40})
       .dimension(dateDimension)
@@ -88,6 +90,35 @@ function buildInstanceCharts(instanceId, readingsPath) {
       .round(d3.time.seconds.round)
       .xUnits(d3.time.minutes)
       .focusCharts([cpuChart, diskChart]);
+
+    nasdaqTable
+      .dimension(dateDimension)
+      .group(function (d) {
+        return d.dd;
+      })
+      .size(10)
+      .columns([
+        function(d) {
+          return '<a href="/instances/' + d.instance_id.$oid + '/readings/' + d._id.$oid + '">' + d._id.$oid + '</a>';
+        },
+        function(d) {
+          return d.dd;
+        },
+        function(d) {
+          return numberFormat(d.data.cpu_usage);
+        },
+        function(d) {
+          return numberFormat(d.data.disk_usage);
+        }
+      ])
+      .sortBy(function (d) {
+        return d.dd;
+      })
+      .order(d3.descending);
+
+    nasdaqTable.renderlet(function(chart) {
+      chart.selectAll('.dc-table-group').remove();
+    });
 
     dc.renderAll();
   });

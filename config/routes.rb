@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get :dashboard,  controller: :dashboard, action: :index
 
   resources :instances do
-    resources :readings, only: [:index], controller: 'instances/readings'
+    resources :readings, only: [:index, :show], controller: 'instances/readings'
   end
 
   namespace :api, defaults: { format: :json } do
