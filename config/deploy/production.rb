@@ -1,0 +1,1 @@
+server 'ec2-54-187-76-110.us-west-2.compute.amazonaws.com', user: 'ubuntu', roles: %w{app db web}

@@ -27,6 +27,11 @@ gem 'dcjs-rails', '~>  1.6'
 gem 'd3-rails', '~>  3.5', '>= 3.5.16'
 gem 'crossfilter-rails', '~>  1.3', '>= 1.3.7'
 
+gem 'capistrano', '~> 3.5'
+gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
+gem 'capistrano-passenger', '~> 0.2'
+gem 'rvm1-capistrano3', '~> 1.4', require: false
+
 group :development do
   gem 'quiet_assets', '~>  1.1'
 end

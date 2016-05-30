@@ -14,11 +14,11 @@ p
 table.table.table-striped
   thead
     tr
-      th PID
-      th Name
+      th Process
+      th CPU Usage
 
   tbody
-    - (@reading.data.try(:process_list) || {}).each do |process|
+    - (@reading.data.try(:process_list) || {}).each do |process, cpu_usage|
       tr
-        td aa
         td= process
+        td= cpu_usage

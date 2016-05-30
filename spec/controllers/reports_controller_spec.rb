@@ -6,10 +6,16 @@ RSpec.describe ReportsController do
 
     let!(:instance) { create(:instance) }
 
-    it 'assigns all instances as @instances' do
+    it 'assigns the cpu usage rank as @cpu_usage_rank' do
       get :index
 
-      expect(assigns(:instances)).to eq([instance])
+      expect(assigns(:cpu_usage_rank)).to be
+    end
+
+    it 'assigns the instances with log disk space as @low_disk_space' do
+      get :index
+
+      expect(assigns(:low_disk_space)).to be
     end
 
     it 'returns a success response' do

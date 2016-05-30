@@ -20,6 +20,7 @@ class ReportsController < ApplicationController
       [instance, cpu_usage]
     end.compact
        .sort_by { |_, cpu_usage| cpu_usage }
+       .reverse
   end
 
   def low_disk_usage
