@@ -1,0 +1,29 @@
+.panel.panel-default
+  .panel-heading CPU Usage
+
+  table.table.table-striped
+    thead
+      tr
+        th Instance
+        th CPU Usage
+
+    tbody
+      - @cpu_usage_rank.each do |instance, cpu_usage|
+        tr
+          td= link_to instance_title(instance), instance_path(instance)
+          td= number_to_human(cpu_usage)
+
+.panel.panel-default
+  .panel-heading Low disk space
+
+  table.table.table-striped
+    thead
+      tr
+        th Instance
+        th Disk Usage
+
+    tbody
+      - @low_disk_space.each do |instance, disk_space|
+        tr
+          td= link_to instance_title(instance), instance_path(instance)
+          td= number_to_human(disk_space)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get :dashboard,  controller: :dashboard, action: :index
+  get :reports,  controller: :reports, action: :index
 
   resources :instances do
     resources :readings, only: [:index, :show], controller: 'instances/readings'
